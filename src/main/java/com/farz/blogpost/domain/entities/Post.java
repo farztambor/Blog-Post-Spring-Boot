@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-@Enabled
+@Entity
 @Table(name = "posts")
 @NoArgsConstructor
 @AllArgsConstructor

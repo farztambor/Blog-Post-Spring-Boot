@@ -1,12 +1,11 @@
 package com.farz.blogpost.repositories;
 
-import com.farz.blogpost.domain.entities.User;
+import com.farz.blogpost.domain.entities.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID> {
-
+public interface PostRepository extends JpaRepository<Post, UUID> {
 }

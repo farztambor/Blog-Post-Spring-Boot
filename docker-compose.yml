@@ -1,32 +1,18 @@
 services:
-  #database
-  postgres:
+  # Our PostgreSQL database
+  db:
+    # Using the latest PostgreSQL image
     image: postgres:latest
-    container_name: postgres_blogdb
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_db: blogdb
     ports:
       - "5432:5432"
     restart: always
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin_blogdb
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - "8081:81"
-    restart: always
-    depends_on:
-      - postgres
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      POSTGRES_PASSWORD: changemeinprod!
 
-volumes:
-  postgres_data:
-  pgadmin_data:
+  # Database management interface
+  adminer:
+    image: adminer:latest
+    restart: always
+
+    ports:
+      - 8888:8080
